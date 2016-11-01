@@ -1,9 +1,11 @@
 <ul>
   {{#each model as |committee|}}
-    <li>
-      {{#link-to 'committee' committee.committee_id}}
-        {{committee.name}}
-      {{/link-to}}
-  </li>
+    <div class="container">
+      <li>
+        {{#link-to 'committee' committee.committee_id}}
+          {{committee.name}}
+        {{/link-to}}
+      </li>
+    </div>
   {{/each}}
 </ul>

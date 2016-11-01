@@ -1,0 +1,10 @@
+<h2>{{model.subcommittee .name}} - {{model.subcommittee .chamber}}</h2>
+
+<h3>DUB Committee Members</h3>
+{{#if model.committeemembers}}
+  {{#each model.committeemembers as |member|}}
+    <br>{{member.legislator.first_name}} {{member.legislator.last_name}}
+  {{/each}}
+{{else}}
+  No Members
+{{/if}}

@@ -1,0 +1,16 @@
+<h2>
+  Name Of Bill: {{model.short_title}}<br>
+  Description: {{model.official_title}}<br>
+  Chamber: {{model.chamber}}<br>
+  Bill ID: {{model.bill_id}}<br>
+  Sponsor Committees:
+  {{#each model.committee_ids as |committee_id|}}
+  {{#link-to 'committee' committee_id}}
+  {{committee_id}}
+  {{/link-to}}
+  {{/each}}<br>
+  Sponsor ID:
+  {{#link-to 'legislators' model.sponsor_id}}
+  {{model.sponsor_id}}
+  {{/link-to}}
+</h2>

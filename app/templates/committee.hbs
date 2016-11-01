@@ -1,8 +1,21 @@
-{{#each model.parentcommittee as |committee|}}
-  <h2>{{committee.name}} - {{committee.chamber}}</h2>
-{{/each}}
+<h2>{{model.parentcommittee.name}} - {{model.parentcommittee.chamber}}</h2>
+
+<h3>Committee Members</h3>
+{{#if model.committeemembers}}
+  {{#each model.committeemembers as |member|}}
+    <br>{{member.legislator.first_name}} {{member.legislator.last_name}}
+  {{/each}}
+{{else}}
+  No Members
+{{/if}}
 
 <h3>Subcommittees</h3>
-{{#each model.subcommittees as |subcommittee|}}
-  <br>{{subcommittee.name}} - {{subcommittee.chamber}}
-{{/each}}
+{{#if model.subcommittees}}
+  {{#each model.subcommittees as |subcommittee|}}
+    {{#link-to 'subcommittee' model.parentcommittee.committee_id subcommittee.committee_id}}
+      <br>{{subcommittee.name}} - {{subcommittee.chamber}}
+    {{/link-to}}
+  {{/each}}
+{{else}}
+  No Subcommittees
+{{/if}}

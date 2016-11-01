@@ -1,0 +1,19 @@
+<select onchange={{action "changeChamber" value="target.value"}}>
+  <option value="">All</option>
+  <option value="house">House</option>
+  <option value="senate">Senate</option>
+</select>
+
+<ul>
+  {{#each bills as |bill|}}
+    <li>
+      {{#link-to 'bill' bill.bill_id}}
+      {{#if bill.short_title}}
+        {{bill.short_title}}
+      {{else}}
+        {{bill.official_title}}
+      {{/if}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
