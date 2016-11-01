@@ -1,0 +1,8 @@
+{{#each model.parentcommittee as |committee|}}
+  <h2>{{committee.name}} - {{committee.chamber}}</h2>
+{{/each}}
+
+<h3>Subcommittees</h3>
+{{#each model.subcommittees as |subcommittee|}}
+  <br>{{subcommittee.name}} - {{subcommittee.chamber}}
+{{/each}}
